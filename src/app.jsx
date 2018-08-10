@@ -1,23 +1,23 @@
 import React from 'react';
-import Header from './components/header/index.jsx';
-// import Routes from './pages/routes';
-// import { Provider } from 'react-redux';
-// import { createStore } from 'redux';
-// import reducer from './reducers';
+import Header from './pages/header/index.jsx';
+import Footer from './pages/footer/index.jsx';
+import Routes from './pages/routes/routes.jsx';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './reducers/rootReducer.js';
 
-// const store = createStore(reducer);
+const store = createStore(reducer);
 
 class App extends React.Component {
   render() {
     return (
-      // <Provider store={store}>
-        <div className="App">
-          {/* <Routes /> */}
+      <Provider store={store}>
+        <div className="app">
           <Header />
-          <div> Body </div>
-          <div> Footer </div>
+          <Routes />
+          <Footer />
         </div>
-      // </Provider>
+      </Provider>
     );
   }
 }

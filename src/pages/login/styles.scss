@@ -1,0 +1,64 @@
+.login {
+  width: 20rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3rem;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 5px 10px 0px #0000001a;
+}
+
+.login .login-title {
+  display: block;
+  font-size: 30px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.login .input-box-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.login .input-box-wrapper .input-wrapper {
+  width: 100%;
+  position: relative;
+  background-color: #f7f7f7;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.5rem;
+}
+
+.login .input-box-wrapper .input-label {
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.login .input-box-wrapper .input-wrapper .input {
+  color: #333333;
+  line-height: 1.2;
+  font-size: 1.5rem;
+  width: calc(100% - 2.4rem);
+  background: transparent;
+  height: 3rem;
+  padding: 0 1.2rem;
+  outline: none;
+  border: none;
+}
+
+.login .submit-button {
+  padding: 0 20px;
+  width: 100%;
+  height: 60px;
+  background-color: #333333;
+  border-radius: 10px;
+  font-family: Poppins-Medium;
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.2;
+  cursor: pointer;
+}
