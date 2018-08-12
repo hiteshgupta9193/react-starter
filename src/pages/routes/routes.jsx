@@ -15,23 +15,17 @@ import './styles.scss';
 
 const Routes = props => {
   const { isLoggedIn } = props;
+
+  const render = (path = '/login', component) => () =>
+    isLoggedIn ? component || <Redirect to={path} /> : <Redirect to="/login" />;
+
   return (
     <div className="routes">
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={() =>
-            isLoggedIn ? (
-              <Redirect to="/component1" />
-            ) : (
-              <Redirect to="/login" />
-            )
-          }
-        />
-        <Route exact path="/component1" component={Component1} />
-        <Route exact path="/component2" component={Component2} />
-        <Route exact path="/component3" component={Component3} />
+        <Route exact path="/" render={render('/component1')} />
+        <Route exact path="/component1" render={render(null, <Component1 />)} />
+        <Route exact path="/component2" render={render(null, <Component2 />)} />
+        <Route exact path="/component3" render={render(null, <Component3 />)} />
         <Route path="/login" component={Login} />
       </Switch>
     </div>
