@@ -22,7 +22,7 @@ class Login extends React.Component {
 
     event.preventDefault();
     login({ username });
-    history.push('../');
+    history.push('../login');
   };
 
   handleUsernameChange = ({ target: { value: username } }) => {
