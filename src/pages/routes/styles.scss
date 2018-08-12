@@ -1,3 +1,5 @@
+@import './../../styles/common.scss';
+
 .routes {
-  height: calc(100vh - 120px);
+  height: calc(100vh - (2 * $header-footer-height));
 }

@@ -1,7 +1,10 @@
+@import './../../styles/common.scss';
+
 .footer {
-  font-size: 30px;
-  height: 60px;
-  background: #333333;
+  font-size: $header-footer-font-size;
+  height: $header-footer-height;
+  background: $header-footer-bg-color;
+  color: $header-footer-font-color;
   position: absolute;
   bottom: 0;
   width: 100%;
