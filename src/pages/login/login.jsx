@@ -37,6 +37,10 @@ class Login extends React.Component {
     });
   };
 
+  onCancel = () => {
+    this.props.history.push('../home');
+  };
+
   render() {
     const { username, password } = this.state;
     const { isLoggedIn, history } = this.props;
@@ -69,7 +73,14 @@ class Login extends React.Component {
               />
             </div>
           </div>
-          <input className="submit-button" type="submit" value="Submit" />
+          <div className="actions-container">
+            <button className="submit-button" type="submit">
+              Submit
+            </button>
+            <button className="cancel-button" type="button" onClick={this.onCancel}>
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     );

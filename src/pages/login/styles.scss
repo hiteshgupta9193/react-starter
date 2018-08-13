@@ -49,9 +49,9 @@
     }
   }
 
-  .submit-button {
+  .action-button {
     padding: 0 20px;
-    width: 100%;
+    width: 45%;
     height: 60px;
     background-color: #333333;
     border-radius: 10px;
@@ -60,5 +60,18 @@
     color: #fff;
     line-height: 1.2;
     cursor: pointer;
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: space-between;
+
+    .submit-button {
+      @extend .action-button;
+    }
+
+    .cancel-button {
+      @extend .action-button;
+    }
   }
 }
