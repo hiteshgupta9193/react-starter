@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { actions, selectors } from './../../reducers/user';
+import { actions, selectors } from 'reducers/user';
 
 import './styles.scss';
 

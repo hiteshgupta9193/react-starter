@@ -4,13 +4,13 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
-import { actions, selectors } from './../../reducers/user';
+import { actions, selectors } from 'reducers/user';
 
-import Component1 from './../component1/index.jsx';
-import Component2 from './../component2/index.jsx';
-import Component3 from './../component3/index.jsx';
-import Login from './../login/index.jsx';
-import Home from './../home/index.jsx';
+import Component1 from 'pages/component1/index.jsx';
+import Component2 from 'pages/component2/index.jsx';
+import Component3 from 'pages/component3/index.jsx';
+import Login from 'pages/login/index.jsx';
+import Home from 'pages/home/index.jsx';
 
 import './styles.scss';
 

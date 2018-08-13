@@ -17,6 +17,12 @@ module.exports = {
     filename: 'main.js',
     publicPath: '/'
   },
+  resolve: {
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ]
+  },
   module: {
     rules: [
       // {

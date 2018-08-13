@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { actions, selectors } from '../../reducers/user';
+import { actions, selectors } from 'reducers/user';
 import Login from './login.jsx';
 
 const mapStateToProps = state => ({
