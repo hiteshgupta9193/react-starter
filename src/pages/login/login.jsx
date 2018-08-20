@@ -16,12 +16,12 @@ class Login extends React.Component {
   handleSubmit = event => {
     const {
       history,
-      userActions: { login }
+      userActions: { loginFetch }
     } = this.props;
-    const { username } = this.state;
+    const { username, password } = this.state;
 
     event.preventDefault();
-    login({ username });
+    loginFetch({ username, password });
     history.push('../login');
   };
 
@@ -77,7 +77,11 @@ class Login extends React.Component {
             <button className="submit-button" type="submit">
               Submit
             </button>
-            <button className="cancel-button" type="button" onClick={this.onCancel}>
+            <button
+              className="cancel-button"
+              type="button"
+              onClick={this.onCancel}
+            >
               Cancel
             </button>
           </div>
