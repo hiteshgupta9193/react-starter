@@ -125,10 +125,12 @@ const actions = {
 
 const isLoggedIn = state => state.userReducer.loggedIn;
 const getUser = state => state.userReducer.user;
+const getState = state => state.userReducer;
 
 const selectors = {
   isLoggedIn,
-  getUser
+  getUser,
+  getState
 };
 
 export { actions, selectors, types };

@@ -11,7 +11,6 @@ export function* loginWorker(action) {
 
   const { loginSuccess, loginError, loginReset } = actions;
   const { success, errorMessage, user } = validateAuth(username, password);
-  debugger;
 
   yield delay(Math.floor((Math.random() * 2 + 1) * 1000));
 
@@ -20,6 +19,8 @@ export function* loginWorker(action) {
     yield put(loginSuccess(_.omit(user, 'authToken')));
   } else {
     yield put(loginError(errorMessage));
+    yield delay(3000);
+    yield put(loginReset());
   }
 }
 

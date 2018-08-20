@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import cx from 'classnames';
+import Toast from 'components/toast/index.jsx';
 import './styles.scss';
 
 class Login extends React.Component {
@@ -43,7 +44,18 @@ class Login extends React.Component {
 
   render() {
     const { username, password } = this.state;
-    const { isLoggedIn, history } = this.props;
+    const {
+      isLoggedIn,
+      history,
+      data: {
+        login: { loading: loginLoading, error: loginError }
+      }
+    } = this.props;
+    const disableLogin = loginLoading
+      ? true
+      : username && password
+        ? false
+        : true;
     if (isLoggedIn) {
       history.push('../');
     }
@@ -74,7 +86,14 @@ class Login extends React.Component {
             </div>
           </div>
           <div className="actions-container">
-            <button className="submit-button" type="submit">
+            <button
+              className={cx('submit-button', {
+                'button-disabled': disableLogin,
+                'button-loading': loginLoading
+              })}
+              type="submit"
+              disabled={disableLogin}
+            >
               Submit
             </button>
             <button
@@ -86,6 +105,7 @@ class Login extends React.Component {
             </button>
           </div>
         </form>
+        {loginError && <Toast type="error">{loginError}</Toast>}
       </div>
     );
   }

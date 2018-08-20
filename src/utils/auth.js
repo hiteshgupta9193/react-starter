@@ -4,7 +4,6 @@ const userLocalStorageKey = 'LOGGEDIN_USERID';
 const { USERS, userTokens } = userDetails;
 
 export const getLoggedInUser = () => {
-  debugger;
   const userToken = localStorage.getItem(userLocalStorageKey);
   const userId = userTokens[userToken];
   let loggedIn = false;
