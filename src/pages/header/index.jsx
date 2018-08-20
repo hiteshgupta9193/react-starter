@@ -58,11 +58,11 @@ class Header extends React.Component {
     const {
       history: { push },
       isLoggedIn,
-      userActions: { logout }
+      userActions: { logoutFetch }
     } = this.props;
 
     if (isLoggedIn) {
-      logout();
+      logoutFetch();
     }
 
     push('../login');

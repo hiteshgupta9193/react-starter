@@ -24,7 +24,12 @@ export function* loginWorker(action) {
   }
 }
 
-export function* logoutWorker() {}
+export function* logoutWorker() {
+  const { logoutSuccess, logoutError, logoutReset } = actions;
+
+  yield call(clearLocalStorage);
+  yield put(logoutSuccess());
+}
 
 function* login() {
   yield takeLatest(types.LOGIN.FETCH, loginWorker);
