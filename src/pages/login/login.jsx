@@ -44,6 +44,7 @@ class Login extends React.Component {
 
   render() {
     const { username, password } = this.state;
+
     const {
       history,
       data: {
@@ -51,14 +52,17 @@ class Login extends React.Component {
         loggedIn
       }
     } = this.props;
+
     const disableLogin = loginLoading
       ? true
       : username && password
         ? false
         : true;
+
     if (loggedIn) {
       history.push('../');
     }
+
     return (
       <div className="login">
         <form onSubmit={this.handleSubmit}>

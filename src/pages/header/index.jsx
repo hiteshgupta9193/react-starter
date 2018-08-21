@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import cx from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actions, selectors } from 'reducers/user';
@@ -57,9 +58,16 @@ class Header extends React.Component {
   toggleLogin = () => {
     const {
       history: { push },
-      data: { loggedIn },
+      data: {
+        loggedIn,
+        logout: { loading: logoutLoading }
+      },
       userActions: { logoutFetch }
     } = this.props;
+
+    if (logoutLoading) {
+      return;
+    }
 
     if (loggedIn) {
       logoutFetch();
@@ -91,7 +99,9 @@ class Header extends React.Component {
     const {
       location: { pathname },
       history: { push },
-      data
+      data: {
+        logout: { loading: logoutLoading }
+      }
     } = this.props;
     const { showLogin, showLogout } = this.state;
 
@@ -102,7 +112,12 @@ class Header extends React.Component {
           {pathname.split('/')[1].toUpperCase()}
         </div>
         {showLogin || showLogout ? (
-          <div className="header-item login-btn" onClick={this.toggleLogin}>
+          <div
+            className={cx('header-item login-btn', {
+              'button-loading': logoutLoading
+            })}
+            onClick={this.toggleLogin}
+          >
             {showLogin ? 'Login' : 'Logout'}
           </div>
         ) : (
