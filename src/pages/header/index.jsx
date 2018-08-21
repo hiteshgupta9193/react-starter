@@ -68,17 +68,36 @@ class Header extends React.Component {
     push('../login');
   };
 
+  getStatus = () => {
+    const {
+      data: {
+        loggedIn,
+        login: { loading: logginIn },
+        logout: { loading: loggingOut }
+      }
+    } = this.props;
+    if (logginIn) {
+      return 'Logging In';
+    } else if (loggingOut) {
+      return 'Logging Out';
+    } else if (loggedIn) {
+      return 'Logged In';
+    } else {
+      return 'Not Logged In';
+    }
+  };
+
   render() {
     const {
       location: { pathname },
-      history: { push }
+      history: { push },
+      data
     } = this.props;
-
     const { showLogin, showLogout } = this.state;
 
     return (
       <div className="header">
-        <div className="header-item" />
+        <div className="header-item status">{this.getStatus()} </div>
         <div className="header-item title">
           {pathname.split('/')[1].toUpperCase()}
         </div>

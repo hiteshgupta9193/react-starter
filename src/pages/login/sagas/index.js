@@ -27,6 +27,7 @@ export function* loginWorker(action) {
 export function* logoutWorker() {
   const { logoutSuccess, logoutError, logoutReset } = actions;
 
+  yield delay(Math.floor((Math.random() * 2 + 1) * 1000));
   yield call(clearLocalStorage);
   yield put(logoutSuccess());
 }
