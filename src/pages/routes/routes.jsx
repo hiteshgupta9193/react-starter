@@ -15,7 +15,9 @@ import Home from 'pages/home/index.jsx';
 import './styles.scss';
 
 const Routes = props => {
-  const { isLoggedIn } = props;
+  const {
+    data: { loggedIn }
+  } = props;
 
   const render = (path = '/login', component) => () => {
     let comp;
@@ -24,7 +26,7 @@ const Routes = props => {
       location: { pathname }
     } = props;
 
-    if (isLoggedIn) {
+    if (loggedIn) {
       comp = component || <Redirect to={path} />;
     } else if (pathname === loginUrl) {
       comp = <Login />;
@@ -43,14 +45,14 @@ const Routes = props => {
         <Route exact path="/component1" render={render(null, <Component1 />)} />
         <Route exact path="/component2" render={render(null, <Component2 />)} />
         <Route exact path="/component3" render={render(null, <Component3 />)} />
-        <Route path="/login" render={render("/component1")} />
+        <Route path="/login" render={render('/component1')} />
       </Switch>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  isLoggedIn: selectors.isLoggedIn(state)
+  data: selectors.getState(state)
 });
 
 const mapDistpachToProps = dispatch => ({

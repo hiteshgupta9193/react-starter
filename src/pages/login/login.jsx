@@ -45,10 +45,10 @@ class Login extends React.Component {
   render() {
     const { username, password } = this.state;
     const {
-      isLoggedIn,
       history,
       data: {
-        login: { loading: loginLoading, error: loginError }
+        login: { loading: loginLoading, error: loginError },
+        loggedIn
       }
     } = this.props;
     const disableLogin = loginLoading
@@ -56,7 +56,7 @@ class Login extends React.Component {
       : username && password
         ? false
         : true;
-    if (isLoggedIn) {
+    if (loggedIn) {
       history.push('../');
     }
     return (

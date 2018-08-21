@@ -4,7 +4,6 @@ import { actions, selectors } from 'reducers/user';
 import Login from './login.jsx';
 
 const mapStateToProps = state => ({
-  isLoggedIn: selectors.isLoggedIn(state),
   data: selectors.getState(state)
 });
 

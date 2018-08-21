@@ -21,13 +21,13 @@ class Header extends React.Component {
   componentDidMount() {
     const {
       location: { pathname },
-      isLoggedIn
+      data: { loggedIn }
     } = this.props;
 
-    this.toggleLoginLogout(pathname, isLoggedIn);
+    this.toggleLoginLogout(pathname, loggedIn);
   }
 
-  toggleLoginLogout = (pathname, isLoggedIn) => {
+  toggleLoginLogout = (pathname, loggedIn) => {
     if (pathname === loginPath) {
       this.setState({
         showLogin: false,
@@ -35,8 +35,8 @@ class Header extends React.Component {
       });
     } else {
       this.setState({
-        showLogin: isLoggedIn ? false : true,
-        showLogout: isLoggedIn ? true : false
+        showLogin: loggedIn ? false : true,
+        showLogout: loggedIn ? true : false
       });
     }
   };
@@ -44,24 +44,24 @@ class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
     const {
       location: { pathname },
-      isLoggedIn
+      data: { loggedIn }
     } = this.props;
     const {
       location: { pathname: newPathname }
     } = nextProps;
     if (pathname !== newPathname) {
-      this.toggleLoginLogout(newPathname, isLoggedIn);
+      this.toggleLoginLogout(newPathname, loggedIn);
     }
   }
 
   toggleLogin = () => {
     const {
       history: { push },
-      isLoggedIn,
+      data: { loggedIn },
       userActions: { logoutFetch }
     } = this.props;
 
-    if (isLoggedIn) {
+    if (loggedIn) {
       logoutFetch();
     }
 
@@ -95,7 +95,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: selectors.isLoggedIn(state)
+  data: selectors.getState(state)
 });
 
 const mapDistpachToProps = dispatch => ({
