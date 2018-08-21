@@ -13,12 +13,22 @@
   .header-item {
     margin: 0 15px;
     user-select: none;
+    flex: 1;
+  }
+  .title {
+    display: flex;
+    justify-content: center;
   }
 
-  .login-btn,
-  .status {
+  .login-btn {
+    display: flex;
+    justify-content: flex-end;
     font-size: 15px;
     cursor: pointer;
+  }
+
+  .status {
+    font-size: 15px;
   }
 
   .button-loading {

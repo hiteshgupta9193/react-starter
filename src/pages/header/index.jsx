@@ -44,15 +44,10 @@ class Header extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      location: { pathname },
+      location: { pathname: newPathname },
       data: { loggedIn }
-    } = this.props;
-    const {
-      location: { pathname: newPathname }
     } = nextProps;
-    if (pathname !== newPathname) {
-      this.toggleLoginLogout(newPathname, loggedIn);
-    }
+    this.toggleLoginLogout(newPathname, loggedIn);
   }
 
   toggleLogin = () => {
@@ -71,9 +66,9 @@ class Header extends React.Component {
 
     if (loggedIn) {
       logoutFetch();
+    } else {
+      push('../login');
     }
-
-    push('../login');
   };
 
   getStatus = () => {
