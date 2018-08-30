@@ -101,7 +101,9 @@ class Login extends React.Component {
               Submit
             </button>
             <button
-              className="cancel-button"
+              className={cx('cancel-button', {
+                'button-disabled': loginLoading
+              })}
               type="button"
               onClick={this.onCancel}
             >
